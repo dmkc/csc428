@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        <title>CSC428 Technique 2</title>
+        <style>
+            body {
+                margin: 0; padding: 0;
+            }
+
+            #slider_container {
+                position: fixed;
+                bottom: 30px;
+                left: 37%;
+                padding: 20px;
+                border-radius: 10px;
+                background: #fff;
+                opacity: 0.85;
+            }
+
+            #slider_control {
+                width: 250px;
+            }
+
+            #map_container {
+                position: relative;
+            }
+
+            .map {
+                max-width: 100%;
+                position: absolute;
+            }
+
+            .map_reso {
+            }
+        </style>
+
+        <script src="js/html5slider.js"></script>
+    </head>
+    <body>
+        <div id="map_container">
+            <img class="map map_reso" src="./map_reso.png" alt="Map of RESO underground system">
+            <img class="map map_city" src="./map_city.png" alt="Map of the city of Montreal">
+        </div>
+
+        <div id="slider_container">
+            <form action="">
+                <input type="range" id="slider_control" min="0" max="100" value="0">
+            </form>
+        </div>
+    </body>
+</html>
