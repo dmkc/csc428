@@ -28,6 +28,7 @@
             .map {
                 max-width: 100%;
                 position: absolute;
+                visibility: hidden;
             }
 
             .map_reso {
@@ -35,11 +36,13 @@
         </style>
 
         <script src="js/html5slider.js"></script>
+        <script src="js/jquery-1.9.1.js"></script>
+        <script src="js/app.js"></script>
     </head>
     <body>
         <div id="map_container">
-            <img class="map map_reso" src="./map_reso.png" alt="Map of RESO underground system">
-            <img class="map map_city" src="./map_city.png" alt="Map of the city of Montreal">
+            <img id="map_reso" class="map" src="./map_reso.png" alt="Map of RESO underground system">
+            <img id="map_city" class="map" src="./map_city.png" alt="Map of the city of Montreal">
         </div>
 
         <div id="slider_container">
