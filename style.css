@@ -8,14 +8,9 @@ body {
     padding: 20px;
     border-radius: 10px;
     background: #fff;
-    opacity: 0.4;
     -webkit-transform: rotate(90deg);
     -webkit-transform-origin: bottom left;
     -webkit-transition-duration: 40ms;
-}
-
-#slider_container:hover {
-    opacity: 0.85;
 }
 
 #slider_control {
@@ -24,13 +19,107 @@ body {
 
 #map_container {
     position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .map {
     max-width: 100%;
     position: absolute;
-    visibility: hidden;
+    visibility: visible;
 }
 
-.map_reso {
+.map_animation {
+    max-width: 100%;
+    transition-duration: 1s;
+}
+
+#map_reso_btm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition-duration: 1s;
+    backface-visibility: none;
+    transform-style: preserve-3d;
+}
+
+
+.map_reso_animation {
+    position: relative;
+    transition-duration: 1s;
+}
+
+.button {
+    border: 5px solid #Bbb;
+    border-radius: 5px 5px 5px 5px;
+    font-size: 105%;
+    font-weight: bold;
+    padding: 2px;
+    height: 37px;
+}
+
+.button .button_icon {
+    display: inline;
+    margin: 4px 0 0 0;
+}
+
+// ANIMATION STATES
+.animation_0 #map_city {
+    opacity: 1;
+}
+
+.animation_0 #map_reso {
+    opacity: 0;
+}
+
+.animation_0 #map_reso_animation {
+    opacity: 0;
+}
+
+
+.animation_1 #map_reso_btm {
+    top: 0px;
+    left: 0px;
+}
+
+.animation_1 #map_city {
+    opacity: 1;
+}
+
+.animation_1 #map_reso {
+    opacity: 0;
+}
+
+
+.animation_2 #map_reso_btm {
+    top: 33px;
+    left: -49px;
+}
+
+.animation_2 #map_city {
+    opacity: 1;
+}
+
+.animation_2 #map_reso {
+    opacity: 0;
+}
+
+.animation_3 #map_reso_animation {
+    opacity: 0
+}
+
+.animation_3 #map_city {
+    opacity: 1;
+}
+
+.animation_3 #map_reso {
+    opacity: 1;
+}
+
+.animation_4 #map_city {
+    opacity: 0;
+}
+
+.animation_4 #map_reso {
+    opacity: 1;
 }
