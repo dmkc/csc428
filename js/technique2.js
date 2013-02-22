@@ -22,23 +22,24 @@ $(document).ready(function(){
         /* 
          * Animate between transitions
          */
-        transition_animate = function(){
+        transition_animate = function(e){
             // Done animation
             if (states.length == cur_state+1) {
-                return transition_reset();
+                return;
+                //return transition_reset();
             }
 
             cur_state++;
             next_state = states[cur_state];
            
-            container[0].classList = next_state;
+            container[0].className = next_state;
         },
 
         /* 
          * Reset transition.
          */
         transition_reset = function(e){
-            e.preventDefault();
+            if (e !== undefined) e.preventDefault();
 
             clearInterval(interval);
             container[0].className = "animation_0";
