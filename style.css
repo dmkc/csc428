@@ -1,5 +1,7 @@
 body {
     margin: 0; padding: 0;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition-duration: 1s;
 }
 
 #slider_container {
@@ -8,19 +10,14 @@ body {
     padding: 20px;
     border-radius: 10px;
     background: #fff;
-    -webkit-transform: rotate(90deg);
-    -webkit-transform-origin: bottom left;
-    -webkit-transition-duration: 40ms;
-}
-
-#slider_control {
-    width: 250px;
 }
 
 #map_container {
     position: relative;
     width: 100%;
     height: 100%;
+
+    -webkit-transition: opacity 1.5s ease-in-out;
 }
 
 .map {
@@ -31,16 +28,14 @@ body {
 
 .map_animation {
     max-width: 100%;
-    transition-duration: 1s;
+    -webkit-transition-duration: 1.5s;
 }
 
 #map_reso_btm {
     position: absolute;
     top: 0;
     left: 0;
-    transition-duration: 1s;
     backface-visibility: none;
-    transform-style: preserve-3d;
 }
 
 
@@ -50,6 +45,7 @@ body {
 }
 
 .button {
+    background: #eee;
     border: 5px solid #Bbb;
     border-radius: 5px 5px 5px 5px;
     font-size: 105%;
@@ -122,4 +118,8 @@ body {
 
 .animation_4 #map_reso {
     opacity: 1;
+}
+
+.animation_4 #map_reso_animation {
+    opacity: 0;
 }

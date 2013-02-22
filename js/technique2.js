@@ -1,32 +1,60 @@
 $(document).ready(function(){
-    var btn_play     = $('#button_play'),
-        btn_reset    = $('#button_reset'),
-        map_reso_top = $('#map_reso_top'),
-        map_reso_btm = $('#map_reso_btm'),
-        map_reso_end = $('#map_reso_end'),
-        map_city = $('#map_city'),
-        map_city_height = map_city.height(),
+    var container = $('#map_container'),
+        btn_play  = $('#button_play'),
+        btn_restart = $('#button_restart'),
+        states = ['animation_0', 'animation_1', 'animation_2', 
+            'animation_3', 'animation_4'],
+        cur_state = 0,
+        interval = undefined,
 
-        // Animate between maps
+        /*
+         * Begin transition.
+         */
         transition_start = function(e){
             e.preventDefault();
+            cur_state = 0;
 
-            map_city.css('opacity', opacity_city);
-            map_reso.css('opacity', opacity_reso);
+            interval = setInterval(function(){
+                transition_animate();
+            }, 1500);
         },
 
-        // Reset animation
-        transition_reset = function(){
+        /* 
+         * Animate between transitions
+         */
+        transition_animate = function(){
+            // Done animation
+            if (states.length == cur_state+1) {
+                return transition_reset();
+            }
+
+            cur_state++;
+            next_state = states[cur_state];
+           
+            container[0].classList = next_state;
+        },
+
+        /* 
+         * Reset transition.
+         */
+        transition_reset = function(e){
             e.preventDefault();
+
+            clearInterval(interval);
+            container[0].className = "animation_0";
+            return;
         },
 
+        /* 
+         * Get this party started.
+         */
         init_maps = function(){
             // Unhide the maps
             $('.map').css('visibility', 'visible');
         }
     
     // Map to slider moving event
-    btn_play.on('click', transition_start);
-    btn_reset.on('click', transition_reset);
+    btn_play.on('click',  transition_start);
+    btn_restart.on('click', transition_reset);
     init_maps();
 });
